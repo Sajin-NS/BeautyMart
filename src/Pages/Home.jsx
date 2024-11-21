@@ -1,11 +1,13 @@
 import React from "react";
-import { Layout } from "./Layout";
-import HomeLayout from "../Component/Home/HomeLayout"
+import { Layout } from "../Layout";
+import Banner from "../Component/Home/Banner";
+import ProductList from "../Component/Home/ProductList";
 
-export const Home = () => {
+export function Home() {
   return (
     <Layout>
-      <HomeLayout />
+      <Banner />
+      <ProductList />
     </Layout>
   );
-};
+}

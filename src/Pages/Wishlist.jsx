@@ -1,10 +1,12 @@
 import React from "react";
 import { Layout } from "../Layout";
 
-export const Cart = () => {
+const Wishlist = () => {
   return (
     <Layout>
-      <div className="">Cart</div>
+      <div>Wishlist</div>
     </Layout>
   );
 };
+
+export default Wishlist;
