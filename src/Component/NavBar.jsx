@@ -1,23 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuItem,
-  MenuItems,
 } from "@headlessui/react";
-import {
-  Bars3Icon,
-  BellIcon,
-  ShoppingBagIcon,
-  HeartIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const NavBar = () => {
+  const [selected, setSelected] = useState(false)
   return (
-    <Disclosure as="nav" className="fixed top-0 left-0 bg-white z-50 w-full shadow">
+    <Disclosure
+      as="nav"
+      className="fixed top-0 left-0 bg-white z-50 w-full shadow"
+    >
       <div className="mx-auto max-w-full px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -48,32 +43,21 @@ const NavBar = () => {
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
               <a
-                href="#"
-                className="inline-flex items-center border-b-2 border-pink-300 px-1 pt-1 text-sm font-medium text-gray-900"
+                href="#TrendingProduct"
+                className={`inline-flex items-center border-b-2 border-pink-300 px-1 pt-1 text-sm font-medium text-gray-900`}
+                // onClick={setSelected(true)}
               >
-                Dashboard
+                Trending
               </a>
               <a
-                href="#"
+                href="#ProjectList"
                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
               >
-                Team
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-              >
-                Calendar
+                Project
               </a>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-3 sm:pr-0">
+          <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-3 sm:pr-0">
             <button
               type="button"
               className="relative rounded-full p-1 text-gray-400 hover:text-gray-500 "
@@ -98,7 +82,7 @@ const NavBar = () => {
               </a>
             </button>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-3 sm:pr-0">
+          <div className="inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-3 sm:pr-0">
             <button
               type="button"
               className="group relative rounded-full  p-1 text-gray-400 hover:text-gray-500"

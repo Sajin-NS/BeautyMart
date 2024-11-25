@@ -1,92 +1,17 @@
 import React from "react";
+import { products } from "../../Data/Products";
 
 const ProductList = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Basic Tee",
-      href: "#",
-      imageSrc:
-        "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: "$35",
-      color: "Black",
-    },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },{
-        id: 1,
-        name: "Basic Tee",
-        href: "#",
-        imageSrc:
-          "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-        imageAlt: "Front of men's Basic Tee in black.",
-        price: "$35",
-        color: "Black",
-      },
-    
-  ];
   return (
-    <div className="bg-white">
+    <div id="ProjectList" className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          Our Products
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+          Products For You
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
-            <div key={product.id} className="group relative">
+            <div id={product.id} className="group relative">
               <img
                 alt={product.imageAlt}
                 src={product.imageSrc}
@@ -95,7 +20,7 @@ const ProductList = () => {
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <a href={product.href}>
+                    <a href={`/${product.id}`}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.name}
                     </a>
