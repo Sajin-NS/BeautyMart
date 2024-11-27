@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout } from "../Layout";
 import { products } from "../Data/Products";
 import { StarIcon } from "@heroicons/react/20/solid";
@@ -7,7 +7,7 @@ import { Radio, RadioGroup } from "@headlessui/react";
 const ProductDetail = () => {
   const url = window.location.pathname;
   const productId = url.split("/").pop();
-  console.log("productId", productId);
+
   const product = products.find((item) => item.id.toString() === productId);
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -15,11 +15,28 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(
     product && product.colors[0]
   );
+  const [isAdded, setIsAdded] = useState(false);
+
   const [selectedSize, setSelectedSize] = useState(product && product.sizes[2]);
   function handleAddCart(e, product) {
     e.preventDefault();
     localStorage.setItem(`${product.id}`, JSON.stringify(product));
+    setIsAdded(true);
   }
+  function handleRemoveCart(e, id) {
+    e.preventDefault();
+    localStorage.removeItem(id);
+    setIsAdded(false);
+  }
+  const alreadyAdded = Object.keys(localStorage).filter(([key,value] ) => productId === key)
+  useEffect(()=>{
+    // console.log("productId",productId.toString() === localStorage.getItem(product.id.toString()))
+    if(parseInt(productId) === parseInt(alreadyAdded)){
+      setIsAdded(true)
+    }else{
+      setIsAdded(false)
+    }
+  },[])
 
   return (
     <Layout>
@@ -217,15 +234,28 @@ const ProductDetail = () => {
                       </fieldset>
                     </div>
 
-                    <button
-                      type="submit"
-                      className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      onClick={(e) => {
-                        handleAddCart(e, product);
-                      }}
-                    >
-                      Add to cart
-                    </button>
+                    <div className="flex items-center justify-center mt-8 gap-3">
+                      <button
+                        type="submit"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        onClick={(e) => {
+                          handleAddCart(e, product);
+                        }}
+                      >
+                        {!isAdded ? "Add to cart" : `Added to cart successfully`}
+                      </button>
+                      {isAdded && (
+                        <button
+                        title="Remove From Cart"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-red-600 px-2 py-3 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          onClick={(e) => {
+                            handleRemoveCart(e, product.id);
+                          }}
+                        >
+                          Remove
+                        </button>
+                      )}
+                    </div>
                   </form>
 
                   {/* Product details */}
