@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Disclosure,
   DisclosureButton,
@@ -7,7 +7,6 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const NavBar = () => {
-  const [selected, setSelected] = useState(false)
   return (
     <Disclosure
       as="nav"

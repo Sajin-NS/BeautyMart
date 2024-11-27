@@ -1,8 +1,7 @@
 import React from "react";
 import { products } from "../../Data/Products";
 
-const TrendingProject = () => {
-  function handleWishlist(e, id) {}
+const TrendingProject = ({ wishlists, handleWishlist, setWishlists }) => {
   return (
     <div id="TrendingProduct" className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -16,18 +15,22 @@ const TrendingProject = () => {
             .map((product) => (
               <div id={product.id} className="group relative">
                 <button
-                  className="absolute right-0 p-2"
+                  className="absolute right-0 p-2 z-10"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleWishlist(e, product.id);
+                    handleWishlist(e, product);
                   }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
+                    fill={`${
+                      wishlists.includes(`wishlist-${product.id}`)
+                        ? "red"
+                        : "none"
+                    }`}
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
-                    stroke="currentColor"
+                    stroke="gray"
                     class="size-6"
                   >
                     <path
