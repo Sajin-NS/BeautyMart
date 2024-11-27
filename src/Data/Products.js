@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export const products = [
   {
@@ -8,7 +8,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-02.jpg",
     imageAlt: "Front of men's Premium Tee in white.",
-    price: "$40",
+    price: "₹4000",
     color: "White",
     trending: true,
     rating: 4.5,
@@ -60,7 +60,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-03.jpg",
     imageAlt: "Front of men's Casual Shirt in blue.",
-    price: "$50",
+    price: "₹5000",
     color: "Blue",
     trending: true,
     rating: 4.7,
@@ -111,7 +111,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-04.jpg",
     imageAlt: "Front of women's Elegant Blouse in peach.",
-    price: "$60",
+    price: "₹6000",
     color: "Peach",
     trending: false,
     rating: 4.2,
@@ -163,7 +163,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-05.jpg",
     imageAlt: "Front of men's Athletic Hoodie in gray.",
-    price: "$70",
+    price: "₹7000",
     color: "Gray",
     trending: true,
     rating: 4.8,
@@ -208,7 +208,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-06.jpg",
     imageAlt: "Front of women's Summer Dress in floral print.",
-    price: "$55",
+    price: "₹5500",
     color: "Floral",
     trending: false,
     rating: 4.3,
@@ -257,7 +257,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-07.jpg",
     imageAlt: "Front of unisex Winter Jacket in navy blue.",
-    price: "$120",
+    price: "₹12000",
     color: "Navy Blue",
     trending: true,
     rating: 4.9,
@@ -310,7 +310,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-08.jpg",
     imageAlt: "Front of men's Formal Shirt in white.",
-    price: "$45",
+    price: "₹4500",
     color: "White",
     trending: false,
     rating: 4.4,
@@ -358,7 +358,7 @@ export const products = [
     imageSrc:
       "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-09.jpg",
     imageAlt: "Front of men's Casual Shorts in khaki.",
-    price: "$30",
+    price: "₹3000",
     color: "Khaki",
     trending: true,
     rating: 4.6,
