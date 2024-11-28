@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router-dom";
 import { cartContext } from "../App";
+import Page404 from "../Component/Page404";
 
 export const Cart = () => {
   const {
@@ -13,17 +14,18 @@ export const Cart = () => {
     subtotal,
     getAllCart,
     getTotalPrice,
+    render,
     handleRemoveCart,
   } = useContext(cartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     getAllCart();
-  }, []);
+  }, [render]);
 
   useEffect(() => {
     getTotalPrice();
-  }, []);
+  }, [getAllCart]);
 
   return (
     <div className="p-4">
@@ -203,7 +205,10 @@ export const Cart = () => {
           </main>
         </div>
       ) : (
-        <p>Your cart is empty.</p>
+        <Page404
+          title={"Your cart is empty!"}
+          subTitle={"Explore our wide selection and find something you like"}
+        />
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { products } from "../Data/Products";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
+import Page404 from "../Component/Page404";
 
 const ProductDetail = () => {
   const url = window.location.pathname;
@@ -293,7 +294,10 @@ const ProductDetail = () => {
           </div>
         </div>
       ) : (
-        <p>Product not found</p>
+        <Page404
+          title={"Product not found"}
+          subTitle={"Explore our wide selection and find something you like"}
+        />
       )}
     </div>
   );

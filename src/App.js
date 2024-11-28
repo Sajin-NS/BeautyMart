@@ -15,6 +15,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [subtotal, setSubTotal] = useState(0);
   const [render, setRender] = useState(false);
+  const [wishlist, setWishlist] = useState(Object.keys(localStorage));
 
   function getAllCart() {
     const allItems = Object.entries(localStorage)
@@ -26,17 +27,41 @@ function App() {
 
   function getTotalPrice() {
     const total = cart.reduce((sum, item) => {
-      const price = parseFloat(item.price.split("₹").pop());
-      return sum + price;
+      const price = item?.price;
+      const priceInt = parseInt(price.split("₹").pop());
+      return sum + priceInt;
     }, 0);
     setSubTotal(total);
-    // setRender(!render);
+  }
+
+  function handleWishlist(e, product) {
+    if (wishlist.includes(`wishlist-${product.id}`)) {
+      localStorage.removeItem(`wishlist-${product.id}`);
+      setWishlist(Object.keys(localStorage));
+    } else {
+      localStorage.setItem(`wishlist-${product.id}`, JSON.stringify(product));
+      setWishlist(Object.keys(localStorage));
+    }
+  }
+
+  function getAllWishlist() {
+    const allWishList = Object.entries(localStorage)
+      .filter(([key, value]) => key.startsWith("wishlist-"))
+      .map(([_, value]) => JSON.parse(value));
+    setWishlist(allWishList);
+  }
+
+  function handleRemoveWishlist(product) { 
+    localStorage.removeItem(`wishlist-${product.id}`)
+    setRender(!render);
   }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleRemoveCart(item) {
     localStorage.removeItem(`cart-${item.id}`);
+    setRender(!render);
   }
+
   return (
     <div className="App">
       <cartContext.Provider
@@ -48,6 +73,11 @@ function App() {
           handleRemoveCart,
           render,
           setRender,
+          wishlist,
+          setWishlist,
+          handleWishlist,
+          getAllWishlist,
+          handleRemoveWishlist
         }}
       >
         <BrowserRouter>
