@@ -34,11 +34,7 @@ export function Home() {
   };
   return (
     <div>
-      <motion.div
-        variants={bannerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <motion.div variants={bannerVariants} initial="hidden" animate="visible">
         <Banner />
       </motion.div>
 

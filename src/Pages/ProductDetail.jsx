@@ -5,36 +5,50 @@ import { Radio, RadioGroup } from "@headlessui/react";
 import Page404 from "../Component/Page404";
 import { motion } from "framer-motion";
 
-
 const ProductDetail = () => {
   const url = window.location.pathname;
   const productId = url.split("/").pop();
 
   const product = products.find((item) => item.id.toString() === productId);
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+  const [selectedImage, setSelectedImage] = useState(
+    product?.images[0] || null
+  );
+
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [showZoom, setShowZoom] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const bounds = e.target.getBoundingClientRect();
+    const x = ((e.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((e.clientY - bounds.top) / bounds.height) * 100;
+    setZoomPosition({ x, y });
+  };
   const [selectedColor, setSelectedColor] = useState(
     product && product.colors[0]
   );
   const [isAdded, setIsAdded] = useState(false);
-
   const [selectedSize, setSelectedSize] = useState(product && product.sizes[2]);
-  function handleAddCart(e, product) {
+
+  const handleAddCart = (e, product) => {
     e.preventDefault();
     localStorage.setItem(`cart-${product.id}`, JSON.stringify(product));
     setIsAdded(true);
-  }
-  function handleRemoveCart(e, product) {
+  };
+
+  const handleRemoveCart = (e, product) => {
     e.preventDefault();
     localStorage.removeItem(`cart-${product.id}`);
     setIsAdded(false);
-  }
-  const alreadyAdded = Object.keys(localStorage).filter((key)=> key.startsWith("cart-"))
+  };
+
+  const alreadyAdded = Object.keys(localStorage).filter((key) =>
+    key.startsWith("cart-")
+  );
+
   useEffect(() => {
-    // console.log("productId",productId.toString() === localStorage.getItem(product.id.toString()))
-    // JSON.stringify(`cart-${productId}`) === JSON.stringify(alreadyAdded)
-    if (JSON.stringify(alreadyAdded).includes(JSON.stringify(`cart-${productId}`))) {
+    if (
+      JSON.stringify(alreadyAdded).includes(JSON.stringify(`cart-${productId}`))
+    ) {
       setIsAdded(true);
     } else {
       setIsAdded(false);
@@ -47,13 +61,18 @@ const ProductDetail = () => {
     exit: { opacity: 0, y: -50, transition: { duration: 0.5 } },
   };
 
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
   return (
     <motion.div
-    variants={pageVariants}
-    initial="hidden"
-    animate="visible"
-    exit="exit"
-  >      {product ? (
+      variants={pageVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      {" "}
+      {product ? (
         <div className="bg-white">
           <div className="pb-16 pt-6 sm:pb-24">
             <nav
@@ -154,30 +173,48 @@ const ProductDetail = () => {
                 </div>
 
                 {/* Image gallery */}
-                <div className="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
-                  <h2 className="sr-only">Images</h2>
-
-                  {/* First image (larger, vertical) */}
-                  <div className="mb-4">
-                    {product.images.length > 0 && (
+                <div className="lg:col-span-7">
+                  <div
+                    className="mb-4 relative cursor-crosshair"
+                    onMouseMove={handleMouseMove}
+                    onMouseEnter={() => setShowZoom(true)}
+                    onMouseLeave={() => setShowZoom(false)}
+                  >
+                    {selectedImage && (
                       <img
-                        alt={product.images[0].imageAlt}
-                        src={product.images[0].imageSrc}
-                        className="w-full h-full object-cover rounded-lg"
+                        alt={selectedImage.imageAlt}
+                        src={selectedImage.imageSrc}
+                        className="w-full h-full p-20 pb-0 -20 -mt-36 object-cover rounded-lg"
+                      />
+                    )}
+
+                    {/* Zoomed Section */}
+                    {showZoom && (
+                      <div
+                        className="absolute top-1/3 left-full ml-4 w-96 h-96 bg-white border border-gray-300 overflow-hidden"
+                        style={{
+                          backgroundImage: `url(${selectedImage.imageSrc})`,
+                          backgroundSize: "350%", 
+                          backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                        }}
                       />
                     )}
                   </div>
 
-                  {/* Thumbnails for other images */}
-                  <div className="grid grid-cols-3 gap-4">
-                    {product.images.slice(1).map((image) => (
-                      <div key={image.id} className="h-full">
-                        <img
-                          alt={image.imageAlt}
-                          src={image.imageSrc}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      </div>
+                  {/* Thumbnails */}
+                  <div className="flex space-x-4 ml-20">
+                    {product.images.map((image) => (
+                      <img
+                        key={image.id}
+                        alt={image.imageAlt}
+                        src={image.imageSrc}
+                        onClick={() => setSelectedImage(image)}
+                        className={`h-20 w-20 object-cover rounded-lg cursor-pointer ${
+                          selectedImage.id === image.id
+                            ? "border-2 border-indigo-600"
+                            : "border border-gray-300"
+                        }`}
+                      />
                     ))}
                   </div>
                 </div>

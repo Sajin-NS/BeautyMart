@@ -354,8 +354,7 @@ export const products = [
     id: 7,
     name: "Chrisbella Monogram Print Baguette Bag with Adjustable Strap and Wallet",
     href: "#",
-    imageSrc:
-      "/images/HandBag/HandBag1.webp",
+    imageSrc: "/images/HandBag/HandBag1.webp",
     imageAlt: "Front of men's Formal Shirt in white.",
     price: "₹4500",
     color: "White",
@@ -369,22 +368,19 @@ export const products = [
     images: [
       {
         id: 1,
-        imageSrc:
-          "/public/images/HandBag/HandBag1.webp",
+        imageSrc: "/images/HandBag/HandBag1.webp",
         imageAlt: "Back of men's Formal Shirt in white.",
         primary: true,
       },
       {
         id: 2,
-        imageSrc:
-          "/public/images/HandBag/HandBag2.webp",
+        imageSrc: "/images/HandBag/HandBag2.webp",
         imageAlt: "Back of men's Formal Shirt in white.",
         primary: true,
       },
       {
         id: 3,
-        imageSrc:
-          "/public/images/HandBag/HandBag3.webp",
+        imageSrc: "/images/HandBag/HandBag3.webp",
         imageAlt: "Back of men's Formal Shirt in white.",
         primary: true,
       },
