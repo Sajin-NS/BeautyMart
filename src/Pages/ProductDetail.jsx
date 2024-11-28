@@ -3,6 +3,8 @@ import { products } from "../Data/Products";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
 import Page404 from "../Component/Page404";
+import { motion } from "framer-motion";
+
 
 const ProductDetail = () => {
   const url = window.location.pathname;
@@ -39,9 +41,19 @@ const ProductDetail = () => {
     }
   }, []);
 
+  const pageVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    exit: { opacity: 0, y: -50, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div>
-      {product ? (
+    <motion.div
+    variants={pageVariants}
+    initial="hidden"
+    animate="visible"
+    exit="exit"
+  >      {product ? (
         <div className="bg-white">
           <div className="pb-16 pt-6 sm:pb-24">
             <nav
@@ -145,19 +157,27 @@ const ProductDetail = () => {
                 <div className="mt-8 lg:col-span-7 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
                   <h2 className="sr-only">Images</h2>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-                    {product.images.map((image) => (
+                  {/* First image (larger, vertical) */}
+                  <div className="mb-4">
+                    {product.images.length > 0 && (
                       <img
-                        key={image.id}
-                        alt={image.imageAlt}
-                        src={image.imageSrc}
-                        className={classNames(
-                          image.primary
-                            ? "lg:col-span-2 lg:row-span-2"
-                            : "hidden lg:block",
-                          "rounded-lg"
-                        )}
+                        alt={product.images[0].imageAlt}
+                        src={product.images[0].imageSrc}
+                        className="w-full h-full object-cover rounded-lg"
                       />
+                    )}
+                  </div>
+
+                  {/* Thumbnails for other images */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {product.images.slice(1).map((image) => (
+                      <div key={image.id} className="h-full">
+                        <img
+                          alt={image.imageAlt}
+                          src={image.imageSrc}
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -167,7 +187,7 @@ const ProductDetail = () => {
                     {/* Color picker */}
                     <div>
                       <h2 className="text-sm font-medium text-gray-900">
-                        Color
+                        Type
                       </h2>
 
                       <fieldset aria-label="Choose a color" className="mt-2">
@@ -203,7 +223,7 @@ const ProductDetail = () => {
                     <div className="mt-8">
                       <div className="flex items-center justify-between">
                         <h2 className="text-sm font-medium text-gray-900">
-                          Size
+                          Variant / Size
                         </h2>
                         <span className="text-sm font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">
                           See sizing chart
@@ -299,7 +319,7 @@ const ProductDetail = () => {
           subTitle={"Explore our wide selection and find something you like"}
         />
       )}
-    </div>
+    </motion.div>
   );
 };
 

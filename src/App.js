@@ -8,6 +8,9 @@ import NavBar from "./Component/NavBar";
 import Footer from "./Component/Footer";
 import React, { useState } from "react";
 import { createContext } from "react";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 export const cartContext = createContext();
 

@@ -34,8 +34,8 @@ const NavBar = () => {
               <a href="/">
                 <img
                   alt="Your Company"
-                  src="favicon.ico"
-                  className="h-10 w-auto"
+                  src="/images/Logo/Logo2.png"
+                  className="h-16 w-auto"
                 />
               </a>
             </div>
@@ -46,13 +46,13 @@ const NavBar = () => {
                 className={`inline-flex items-center border-b-2 border-pink-300 px-1 pt-1 text-sm font-medium text-gray-900`}
                 // onClick={setSelected(true)}
               >
-                Trending
+                Home
               </a>
               <a
                 href="/#ProjectList"
                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
               >
-                Project
+                Products
               </a>
             </div>
           </div>
