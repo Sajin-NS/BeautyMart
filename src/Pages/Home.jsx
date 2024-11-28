@@ -18,7 +18,7 @@ export function Home() {
   //   }
   // }
   return (
-    <div>
+    <div >
       <Banner />
       <TrendingProject
         wishlists={wishlist}
