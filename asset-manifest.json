@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/beautymart/static/css/main.180a1665.css",
+    "main.js": "/beautymart/static/js/main.91bebc05.js",
+    "static/js/453.fce66066.chunk.js": "/beautymart/static/js/453.fce66066.chunk.js",
+    "static/media/slick.svg": "/beautymart/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/beautymart/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/beautymart/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/beautymart/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/beautymart/index.html",
+    "main.180a1665.css.map": "/beautymart/static/css/main.180a1665.css.map",
+    "main.91bebc05.js.map": "/beautymart/static/js/main.91bebc05.js.map",
+    "453.fce66066.chunk.js.map": "/beautymart/static/js/453.fce66066.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.180a1665.css",
+    "static/js/main.91bebc05.js"
+  ]
+}
