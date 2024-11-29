@@ -106,7 +106,10 @@ const Footer = () => {
             </a>
           ))}
         </div>
-        <p className="mt-10 text-center text-sm/6 text-gray-600">
+        <div className="flex justify-center">
+          <img src="/images/Logo/Logo2.png" className="h-28 w-52" />
+        </div>
+        <p className=" text-center text-sm/6 text-gray-600">
           &copy; {year} Beauty Mart, Inc. All rights reserved.
         </p>
       </div>
