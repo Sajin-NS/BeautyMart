@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Banner from "../Component/Home/Banner";
 import ProductList from "../Component/Home/ProductList";
 import TrendingProject from "../Component/Home/TrendingProduct";
@@ -8,23 +8,11 @@ import { motion } from "framer-motion";
 
 export function Home() {
   const { wishlist, setWishlist, handleWishlist } = useContext(cartContext);
-
-  // const [wishlists, setWishlists] = useState(Object.keys(localStorage));
-  // function handleWishlist(e, product) {
-  //   if (wishlists.includes(`wishlist-${product.id}`)) {
-  //     localStorage.removeItem(`wishlist-${product.id}`);
-  //     setWishlists(Object.keys(localStorage));
-  //   } else {
-  //     localStorage.setItem(`wishlist-${product.id}`, JSON.stringify(product));
-  //     setWishlists(Object.keys(localStorage));
-  //   }
-  // }
-
   const [trendingRef, trendingInView] = useInView({ threshold: 0.2 });
   const [productRef, productInView] = useInView({ threshold: 0.2 });
 
   const fadeInVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 

@@ -28,7 +28,7 @@ const Banner = () => {
           <div key={index} className="relative">
             <img
               src={image}
-              className="h-[92vh] w-full object-cover opacity-90 "
+              className="h-[92vh] w-full object-cover opacity-90"
               alt={`Banner ${index + 1}`}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center">

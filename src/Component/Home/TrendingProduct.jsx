@@ -14,6 +14,7 @@ const TrendingProject = ({ wishlists, handleWishlist, setWishlists }) => {
             .filter((items) => items.trending !== false)
             .map((product) => (
               <div
+              key={product.id}
                 id={product.id}
                 className="relative flex-shrink-0 w-[30vh] md:w-[45vh] group"
                 style={{ minWidth: "calc(25% - 0.5rem)" }}
