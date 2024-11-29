@@ -56,7 +56,7 @@ const ProductDetail = () => {
   }, []);
 
   const pageVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 5 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     exit: { opacity: 0, y: -50, transition: { duration: 0.5 } },
   };
@@ -90,13 +90,13 @@ const ProductDetail = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
-                        class="size-6"
+                        className="size-6"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
                         />
                       </svg>
@@ -194,7 +194,7 @@ const ProductDetail = () => {
                         className="absolute top-1/3 left-full ml-4 w-96 h-96 bg-white border border-gray-300 overflow-hidden"
                         style={{
                           backgroundImage: `url(${selectedImage.imageSrc})`,
-                          backgroundSize: "350%", 
+                          backgroundSize: "350%",
                           backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
                         }}
                       />
