@@ -184,7 +184,7 @@ const ProductDetail = () => {
                       <img
                         alt={selectedImage.imageAlt}
                         src={selectedImage.imageSrc}
-                        className="w-full h-full p-20 pb-0 -20 -mt-36 object-cover rounded-lg"
+                        className="w-full h-full md:p-20 md:pb-0 -20 md:-mt-36 object-cover rounded-lg"
                       />
                     )}
 
