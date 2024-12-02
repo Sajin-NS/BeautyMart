@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/beautymart/static/css/main.5c4f5cfd.css",
-    "main.js": "/beautymart/static/js/main.eb6bb5eb.js",
+    "main.js": "/beautymart/static/js/main.6a520d99.js",
     "static/js/453.69f3745b.chunk.js": "/beautymart/static/js/453.69f3745b.chunk.js",
     "static/media/slick.svg": "/beautymart/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/beautymart/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -9,11 +9,11 @@
     "static/media/slick.woff": "/beautymart/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/beautymart/index.html",
     "main.5c4f5cfd.css.map": "/beautymart/static/css/main.5c4f5cfd.css.map",
-    "main.eb6bb5eb.js.map": "/beautymart/static/js/main.eb6bb5eb.js.map",
+    "main.6a520d99.js.map": "/beautymart/static/js/main.6a520d99.js.map",
     "453.69f3745b.chunk.js.map": "/beautymart/static/js/453.69f3745b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c4f5cfd.css",
-    "static/js/main.eb6bb5eb.js"
+    "static/js/main.6a520d99.js"
   ]
 }
