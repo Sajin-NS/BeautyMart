@@ -97,7 +97,7 @@ const NavBar = () => {
         </div>
 
           {/* Cart and Wishlist */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <a href="/cart" className="p-2 text-gray-400 hover:text-gray-600">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +154,7 @@ const NavBar = () => {
               Trending
             </button>
             <button
-              onClick={() => handleClick("ProjectList")}
+              onClick={() => handleClick("ProductList")}
               className={`block px-3 py-2 text-sm font-medium text-gray-500 hover:text-gray-700 ${
                 active === "ProjectList" && "bg-gray-200"
               }`}
