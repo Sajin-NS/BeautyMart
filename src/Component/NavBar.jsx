@@ -76,6 +76,26 @@ const NavBar = () => {
             </Link>
           </div>
 
+
+          <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+          <button
+            onClick={() => handleClick("TrendingProduct")}
+            className={`inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 ${
+              active === "TrendingProduct" && "border-b-2 border-pink-400"
+            }`}
+          >
+            Trending
+          </button>
+          <button
+            onClick={() => handleClick("ProjectList")}
+            className={`inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 ${
+              active === "ProjectList" && "border-b-2 border-pink-400"
+            }`}
+          >
+            Products
+          </button>
+        </div>
+
           {/* Cart and Wishlist */}
           <div className="flex items-center space-x-4">
             <a href="/cart" className="p-2 text-gray-400 hover:text-gray-600">
@@ -116,11 +136,13 @@ const NavBar = () => {
           </div>
         </div>
 
+        
+
         {/* Dropdown Menu */}
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } sm:hidden bg-white shadow-md mt-2`}
+          } md:hidden bg-white shadow-md mt-2`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             <button
@@ -141,6 +163,7 @@ const NavBar = () => {
             </button>
           </div>
         </div>
+       
       </div>
     </nav>
   );
