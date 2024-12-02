@@ -22,7 +22,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full pb-10">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="relative">
