@@ -87,9 +87,9 @@ const NavBar = () => {
             Trending
           </button>
           <button
-            onClick={() => handleClick("ProjectList")}
+            onClick={() => handleClick("ProductList")}
             className={`inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-700 ${
-              active === "ProjectList" && "border-b-2 border-pink-400"
+              active === "ProductList" && "border-b-2 border-pink-400"
             }`}
           >
             Products

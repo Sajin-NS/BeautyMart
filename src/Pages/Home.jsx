@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export function Home() {
   const { wishlist, setWishlist, handleWishlist } = useContext(cartContext);
   const [trendingRef, trendingInView] = useInView({ threshold: 0.2 });
-  const [productRef, productInView] = useInView({ threshold: 0.2 });
+  const [productRef, productInView] = useInView({ threshold: 0.03 });
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 15 },
